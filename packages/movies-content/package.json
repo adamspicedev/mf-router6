@@ -1,0 +1,27 @@
+{
+  "name": "movies-content",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.tsx",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsc --outDir dist --watch",
+    "build": "tsc --outDir dist",
+    "lint": "eslint *.ts*"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "workspace:*",
+    "react": "^18.1.0",
+    "store": "workspace:*",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "@mantine/core": "^4.2.7",
+    "@mantine/hooks": "^4.2.7",
+    "react-router-dom": "^6.3.0"
+  }
+}
