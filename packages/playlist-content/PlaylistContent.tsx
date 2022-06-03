@@ -1,10 +1,10 @@
-import React from 'react';
-import { Box, Title, Grid } from '@mantine/core';
+import React from "react";
+import { Box, Title, Grid } from "@mantine/core";
 
-import { useStore } from 'store';
-import { MovieCard } from 'card';
+import { useStore } from "store";
+import { MovieCard } from "card";
 
-const Playlist = () => {
+export const Playlist = () => {
   const { movies } = useStore();
   return (
     <>
@@ -14,7 +14,7 @@ const Playlist = () => {
       <Grid
         mt={20}
         sx={{
-          gap: '1rem',
+          gap: "1rem",
         }}
       >
         {movies.map((movie) => (
@@ -24,5 +24,3 @@ const Playlist = () => {
     </>
   );
 };
-
-export default Playlist;

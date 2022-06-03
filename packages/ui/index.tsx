@@ -1,15 +1,17 @@
-import * as React from 'react';
-import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
+import * as React from "react";
+import { BrowserRouter, Outlet, Link, Routes, Route } from "react-router-dom";
 import {
   AppShell as MantineAppShell,
   Header,
+  Title,
   MantineProvider,
   Navbar,
+  UnstyledButton,
+  Group,
   Text,
-  Title,
-} from '@mantine/core';
-import { MainLink } from './MainLink';
-import { useStore } from 'store';
+} from "@mantine/core";
+
+import { useStore } from "store";
 
 export type Route = {
   element: React.FunctionComponent;
@@ -17,15 +19,42 @@ export type Route = {
 };
 
 export type NavLink = {
-  path: string;
   label: string;
+  path: string;
 };
+
+function MainLink({ label, path }: NavLink) {
+  return (
+    <Link to={path}>
+      <UnstyledButton
+        sx={(theme) => ({
+          display: "block",
+          width: "100%",
+          padding: theme.spacing.xs,
+          borderRadius: theme.radius.sm,
+          color:
+            theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
+          "&:hover": {
+            backgroundColor:
+              theme.colorScheme === "dark"
+                ? theme.colors.dark[6]
+                : theme.colors.gray[0],
+          },
+        })}
+      >
+        <Group>
+          <Text size="sm">{label}</Text>
+        </Group>
+      </UnstyledButton>
+    </Link>
+  );
+}
 
 export const AppShell: React.FunctionComponent<{
   title: string;
-  colorScheme?: 'light' | 'dark';
   routes: Route[];
   navLinks: NavLink[];
+  colorScheme?: "light" | "dark";
 }> = ({ title, colorScheme, routes, navLinks }) => {
   const { movies } = useStore();
   return (
@@ -33,7 +62,9 @@ export const AppShell: React.FunctionComponent<{
       <MantineProvider
         withGlobalStyles
         withNormalizeCSS
-        theme={{ colorScheme }}
+        theme={{
+          colorScheme,
+        }}
       >
         <MantineAppShell
           padding="md"
@@ -48,16 +79,20 @@ export const AppShell: React.FunctionComponent<{
             <Header
               height={60}
               p="xs"
-              sx={{ display: 'flex' }}
+              sx={{
+                display: "flex",
+              }}
               styles={(theme) => ({
-                backgroundColor:
-                  theme.colorScheme === 'dark'
-                    ? theme.colors.dark[8]
-                    : theme.colors.gray[0],
+                main: {
+                  backgroundColor:
+                    theme.colorScheme === "dark"
+                      ? theme.colors.dark[8]
+                      : theme.colors.gray[0],
+                },
               })}
             >
               <Title sx={{ flexGrow: 1 }}>{title}</Title>
-              <Text>{movies.length} selected</Text>
+              <Text size="xl">{movies.length} selected</Text>
             </Header>
           }
         >

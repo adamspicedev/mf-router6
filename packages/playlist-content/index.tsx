@@ -1,4 +1,2 @@
-import React from 'react';
-import Playlist from './PlaylistContent';
-
-export { Playlist };
+import React from "react";
+export { Playlist } from "./PlaylistContent";

@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 import {
-  Button,
   Card,
-  Group,
   Image,
   Text,
+  Button,
+  Group,
   useMantineTheme,
-} from '@mantine/core';
-import { useStore } from 'store';
+} from "@mantine/core";
+import { useStore } from "store";
 
 export const MovieCard: React.FunctionComponent<{
   title: string;

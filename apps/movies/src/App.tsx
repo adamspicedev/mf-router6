@@ -1,19 +1,32 @@
-import React from 'react';
-import { AppShell } from 'ui';
-import { MoviesContent } from 'movies-content';
-import { Playlist } from 'playlist-content';
+import React from "react";
+import { AppShell } from "ui";
+
+import { Playlist } from "playlist-content";
+import { MoviesContent } from "movies-content";
 
 function App() {
   return (
     <AppShell
       title="Movies"
       routes={[
-        { path: '/', element: MoviesContent },
-        { path: '/playlist', element: Playlist },
+        {
+          path: "/",
+          element: MoviesContent,
+        },
+        {
+          path: "/playlist",
+          element: Playlist,
+        },
       ]}
       navLinks={[
-        { path: '/', label: 'Home' },
-        { path: '/playlist', label: 'Playlist' },
+        {
+          label: "Home",
+          path: "/",
+        },
+        {
+          label: "Playlist",
+          path: "/playlist",
+        },
       ]}
     />
   );

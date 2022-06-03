@@ -1,5 +1,5 @@
 {
-  "name": "mf-router6",
+  "name": "turborepo-basic-shared",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
@@ -20,5 +20,5 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "pnpm@6.29.1"
+  "packageManager": "pnpm@7.1.2"
 }

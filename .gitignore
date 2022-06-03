@@ -2,9 +2,9 @@
 
 # dependencies
 node_modules
-dist
 .pnp
 .pnp.js
+dist
 
 # testing
 coverage
